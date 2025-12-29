@@ -1,3 +1,10 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="login.php">
+            <span class="float-end">Login / Signup</span>
+        </a>
+    </div>
+</nav>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="dashboard.php">Home</a>
@@ -5,18 +12,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="categories.php">Categories</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="members.php">Members</a>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu">
+                        <?php
+                        foreach (getLatest("*", "categories", "catid", 100) as $cat) {
+                            echo '<li><a class="dropdown-item" href="categories.php?pageid=' . $cat['catid'] . '&pagename=' . $cat['name'] . '">' . str_replace(' ', '-', $cat['name']) . "</a></li>";
+                        }
+                        ?>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="items.php">Items</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="settings.php">settings</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="comments.php">Comments</a>
@@ -26,7 +34,7 @@
                         Profile
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="members.php?do=Edit&userid=<?php echo $_SESSION['ID']; ?>">Edit profile</a></li>
+                        <li><a class="dropdown-item" href="#">Edit profile</a></li>
                         <li><a class="dropdown-item" href="../index.php">visit shop</a></li>
                         <li><a class="dropdown-item" href="logout.php">logout</a></li>
                     </ul>

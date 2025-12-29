@@ -1,0 +1,136 @@
+.login input {
+  margin-bottom: 10px;
+}
+
+.login .form-control {
+  background-color: #eaeaea;
+}
+
+.login .btn {
+  background-color: #008dde;
+}
+
+.login-form {
+  max-width: 400px;
+  width: 90%;
+  margin: 100px auto;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    max-width: 100%;
+    margin: 40px 10px;
+    padding: 15px;
+  }
+}
+.FI1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: #eaeaea;
+}
+.eye-div {
+  position: relative;
+}
+.show-pass {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
+/* End Login Form */
+
+/* Start Bootstrap Edits */
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.nav > li > a,
+.navbar-brand {
+  padding: 15px 12px;
+}
+
+.navbar-brand {
+  font-size: 1em;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.dropdown-menu {
+  background-color: #3498db;
+}
+
+.dropdown-menu {
+  min-width: 180px;
+  padding: 0;
+  font-size: 1em;
+  border: none;
+  border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+  color: #fff;
+  padding: 10px 15px;
+}
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+  color: #fff;
+  background-color: #8e44ad;
+}
+
+.form-control {
+  position: relative;
+}
+
+.latest {
+  margin-top: 30px;
+}
+h1 {
+  font-size: 55px;
+  margin: 40px 0;
+  font-weight: bold;
+  color: #666;
+}
+/* start categories page */
+.item-box {
+  position: relative;
+}
+.item-box .price-tag {
+  position: absolute;
+  background-color: #91a39b;
+  padding: 5px;
+  left: 0;
+  top: 10px;
+  font-weight: bold;
+}
+
+.login-form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 100px auto;
+  max-width: 400px;
+}
+.signup-form {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 120px auto;
+  max-width: 500px;
+  padding: 15px;
+}
+.login-page h3 {
+  color: rgb(138, 132, 132);
+}
+.login-page h3 span {
+  cursor: pointer;
+}
+.login-page .signup-form {
+  display: none;
+}
+.login-page .selected {
+  color: red;
+}
+/* end categories page */
