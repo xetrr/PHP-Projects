@@ -1,10 +1,9 @@
 <?php
 session_start();
-$pageTitle = "Login";
+$pageTitle = "Dashboard";
 
-if (isset($_SESSION["user"])) {
-    header("location: dashboard.php");
-}
 include 'init.php';
 
-echo "<h3 class='text-center'> welcome" . $_SESSION["user"]  . "</h3>";
+echo "<h3 class='text-center'> welcome " . $_SESSION["user"]  . "</h3>";
+
+include $tpl . 'footer.php';

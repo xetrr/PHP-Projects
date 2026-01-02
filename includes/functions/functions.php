@@ -1,8 +1,29 @@
 <?php
 ob_start();
 
+function getComments($userid)
+{
+    global $con;
+    $stmt = $con->prepare("SELECT comments.*,
+                                items.name AS item_name                                
+                                FROM comments
+                                INNER JOIN items
+                                ON comments.item_id = items.item_id                             
+                                WHERE comments.member_id= ?
+        ");
+    $stmt->execute(array($userid));
+    $comments = $stmt->fetchAll();
+    return $comments;
+}
 // fn to get the lastest records [users, Items , comments]
-
+function getItem($where, $value)
+{
+    global $con;
+    $stmt = $con->prepare("SELECT * FROM items WHERE $where=? ORDER BY item_id DESC");
+    $stmt->execute(array($value));
+    $row = $stmt->fetchAll();
+    return $row;
+}
 function getLatest($select, $table, $order, $limit = 10)
 {
     global $con;
@@ -30,6 +51,18 @@ function getItemsFromCategory($select, $where,  $ordering = 'DESC')
     $rows = $getStmt->fetchAll();
     return $rows;
 }
+
+// check user RegStatus
+
+function checkUserStatus($user)
+{
+    global $con;
+    $stmtx = $con->prepare("SELECT * FROM users WHERE Username = ? AND RegStatus = ?");
+    $stmtx->execute(array($user, 0));
+    $count = $stmtx->rowCount();
+    return $count;
+}
+
 // title function that echos the page title in case the page
 function getTitle(): void
 {

@@ -1,13 +1,21 @@
 <?php
+
+ini_set('display_error', 'On');
+error_reporting(E_ALL);
+
+
 include 'admin/connect.php';
+$session_user = '';
+if (isset($_SESSION["user"])) {
+    $session_user = $_SESSION["user"];
+}
+
 //Routes
 $tpl = 'includes/templates/';
 $lang = 'includes/languages/';
 $func = 'includes/functions/';
 
 include $func . 'functions.php';
-include $func . 'security.php'; // Security helper functions (XSS, CSRF, password hashing)
-include $func . 'constants.php'; // Application constants
 include $lang . 'english.php';
 include $tpl . 'header.php';
 

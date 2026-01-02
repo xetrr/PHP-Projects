@@ -1,27 +1,27 @@
 <?php
+ob_start();
 session_start();
 $pageTitle = "Login";
 
 if (isset($_SESSION["user"])) {
-    //header("location: dashboard.php"); //if logged in >> go to dashboard
+    header("location: dashboard.php"); //if logged in >> go to dashboard
+    exit();
 }
-include 'init.php';
 
+// Process POST data BEFORE including init.php (which outputs HTML)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Include connect.php for database connection
+    include 'admin/connect.php';
+
     $user = $_POST["user"];
     $pass = $_POST["password"];
     $hashedpass = sha1($pass);
-    echo $user;
-    echo "</br>";
-    echo $pass;
-    echo "</br>";
 
     $stmt = $con->prepare("SELECT * FROM users WHERE Username= ? AND Password = ?");
     $stmt->execute(array($user, $hashedpass));
     $row = $stmt->fetch();
     $count = $stmt->rowCount();
-    echo $count;
-    echo $row['user_id'];
+
     if ($count > 0) {
         $_SESSION["user"] = $user;
         $_SESSION["ID"]   = $row['user_id'];
@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
+
+include 'init.php';
 
 // compare the variables with the one in the DB
 
@@ -75,4 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
 
 include '../eCommerce/includes/templates/footer.php';
+ob_end_flush();
 ?>
+ss
