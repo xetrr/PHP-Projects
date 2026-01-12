@@ -18,6 +18,18 @@ $(function () {
     console.log("Showing form: ." + formClass);
     $("." + formClass).fadeIn(100);
   });
+
+  // Live preview: Update item name in preview as user types
+  $(".live-name").on("keyup input", function () {
+    $(".live-preview .caption h5.card-title").text($(this).val());
+  });
+  $(".live-desc").on("keyup input", function () {
+    $(".live-preview .caption p.card-text").text($(this).val());
+  });
+  $(".live-price").on("keyup input", function () {
+    let value = $(this).val().replace(/[^0-9]/g, '');
+    $(".live-preview .price-tag").text( "$"+ value);
+  });
 });
 
 $(".confirm").click(function () {

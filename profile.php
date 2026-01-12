@@ -39,7 +39,8 @@ $userComments = getComments($info['user_id']);
         foreach ($userAds as $adv) { ?>
             <div class="card-body caption card-border">
                 <h5 class="card-title">
-                    name : <?= $adv['name']; ?>
+                    <a href='items.php?itemid=<?= $adv['item_id'] ?> '> name : <?= $adv['name']; ?></a>
+
                 </h5>
                 <p class="card-text">
                     description: <?= $adv['description'] ?>

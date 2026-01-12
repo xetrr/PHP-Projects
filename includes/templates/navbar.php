@@ -4,6 +4,7 @@ $pageTitle = "Login";
 if (isset($_SESSION["user"])) {
     echo "welcome" . $_SESSION["user"] . " ";
     echo "<a href='profile.php'> My Profile </a>";
+    echo "<a href='newadd.php'> Create Ad </a>";
     $status = checkUserStatus($_SESSION["user"]);
     if ($status == 1) {
         echo "Activate your Email";
@@ -15,6 +16,7 @@ if (isset($_SESSION["user"])) {
             <a href="login.php">
                 <span class="float-end">Login / Signup</span>
             </a>
+
         </div>
     </nav>
 <?php
@@ -40,7 +42,7 @@ if (isset($_SESSION["user"])) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="items.php">Items</a>
+                        <a class="nav-link active" aria-current="page" href="newadd.php">Items</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="comments.php">Comments</a>
