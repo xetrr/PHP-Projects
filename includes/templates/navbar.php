@@ -42,11 +42,8 @@ if (isset($_SESSION["user"])) {
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="newadd.php">Items</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="comments.php">Comments</a>
-                    </li>
+                        <a class="nav-link active" aria-current="page" href="items.php">Items</a>
+                    </li>                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile

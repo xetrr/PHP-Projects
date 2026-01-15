@@ -12,8 +12,7 @@ include 'init.php';
 $getUserStmt = $con->prepare("SELECT * FROM users WHERE Username=?");
 $getUserStmt->execute(array($session_user));
 $info = $getUserStmt->fetch();
-echo $info['Username'];
-
+    
 $userAds = getItem('member_id', $info['user_id']);
 $userComments = getComments($info['user_id']);
 
@@ -85,5 +84,3 @@ $userComments = getComments($info['user_id']);
 
 </div>
 <?= include $tpl . 'footer.php'; ?>
-
-p

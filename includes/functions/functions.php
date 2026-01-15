@@ -24,6 +24,53 @@ function getItem($where, $value)
     $row = $stmt->fetchAll();
     return $row;
 }
+
+// Get single item with full details including category and user info
+function getSingleItem($itemId)
+{
+    global $con;
+    $stmt = $con->prepare("SELECT items.*,
+                                categories.name AS category_name,
+                                users.Username AS user_name,
+                                users.Email AS user_email
+                                FROM items
+                                INNER JOIN categories
+                                ON items.cat_id = categories.catid
+                                INNER JOIN users
+                                ON items.member_id = users.user_id
+                                WHERE items.item_id = ?");
+    $stmt->execute(array($itemId));
+    return $stmt->fetch();
+}
+
+// Get approved comments for a specific item
+function getItemComments($itemId)
+{
+    global $con;
+    $stmt = $con->prepare("SELECT comments.*,
+                                users.Username AS user_name
+                                FROM comments
+                                INNER JOIN users
+                                ON comments.member_id = users.user_id
+                                WHERE comments.item_id = ? AND comments.status = 1
+                                ORDER BY comments.date DESC");
+    $stmt->execute(array($itemId));
+    return $stmt->fetchAll();
+}
+
+// Add a new comment
+function addComment($itemId, $memberId, $commentText)
+{
+    global $con;
+    try {
+        $stmt = $con->prepare("INSERT INTO comments (item_id, member_id, comment, date, status)
+                                VALUES (?, ?, ?, NOW(), 0)");
+        $stmt->execute(array($itemId, $memberId, $commentText));
+        return array('success' => true, 'message' => 'Comment submitted successfully and pending approval');
+    } catch (PDOException $e) {
+        return array('success' => false, 'message' => 'Error submitting comment');
+    }
+}
 function getLatest($select, $table, $order, $limit = 10)
 {
     global $con;
