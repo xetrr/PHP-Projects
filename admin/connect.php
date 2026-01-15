@@ -1,8 +1,8 @@
 <?php
 
-$dsn = 'mysql:host=localhost;dbname=shop';
-$user = 'root';
-$pass = '';
+$dsn = 'mysql:host=db.fr-pari1.bengt.wasmernet.com;port=10272;dbname=dbetXVTh4hPAU8w2uPzYkQb8';
+$user = '9775a4df7b7f8000a2487c6b5333';
+$pass = '06969775-a4e0-7b29-8000-1e7ac16e49c4';
 $option = [
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ];
