@@ -128,5 +128,5 @@ if (isset($_SESSION["user"])) {
 <?php
 }
 
-include $tpl . 'footer.php';
+// Footer is already included in init.php, so no need to include it again
 ob_end_flush();

@@ -199,4 +199,6 @@ if ($row > 0) {
     </div>
 <?php } ?>
 
-<?php include $tpl . 'footer.php'; ?>
+<?php
+include $tpl . 'footer.php';
+?>

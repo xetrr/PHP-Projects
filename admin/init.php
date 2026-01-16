@@ -14,4 +14,5 @@ include $tpl . 'header.php';
 if (!isset($noNavbar)) {
     include $tpl . 'navbar.php';
 }
-include $tpl . 'footer.php';
+// NOTE: Footer should be included at the end of each page file, not here!
+
