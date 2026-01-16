@@ -84,5 +84,5 @@ $userComments = getComments($info['user_id']);
 
 </div>
 <?php
-// Footer is already included in init.php, so no need to include it again
+include $tpl . 'footer.php';
 ?>
