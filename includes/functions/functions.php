@@ -86,7 +86,7 @@ function getItemsFromCategory($select, $where,  $ordering = 'DESC')
 {
     global $con;
 
-    $getStmt = $con->prepare("SELECT items.*,.
+    $getStmt = $con->prepare("SELECT items.*,
                                  users.Username AS user_name
                                  FROM items 
                                  INNER JOIN users

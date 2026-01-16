@@ -2,8 +2,8 @@
 
 <div class="container" style="padding: 40px 20px;">
     <div class="category-header text-center mb-5">
-        <h1 class="category-title"><?php echo str_replace('-', ' ', $_GET["pagename"]); ?></h1>
-        <p class="category-subtitle">Browse our collection of <?php echo strtolower(str_replace('-', ' ', $_GET["pagename"])); ?> items</p>
+        <h1 class="category-title"><?php echo isset($_GET["pagename"]) ? htmlspecialchars(str_replace('-', ' ', $_GET["pagename"])) : 'Category'; ?></h1>
+        <p class="category-subtitle">Browse our collection of <?php echo isset($_GET["pagename"]) ? htmlspecialchars(strtolower(str_replace('-', ' ', $_GET["pagename"]))) : 'category'; ?> items</p>
     </div>
 
     <?php
