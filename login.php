@@ -183,7 +183,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </div>
 <?php
-echo sha1('test');
-// include $tpl . 'footer.php';
+include $tpl . 'footer.php';
 ob_end_flush();
 ?>
